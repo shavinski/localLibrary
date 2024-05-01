@@ -5,16 +5,15 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-require("dotenv").config();
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
 const app = express();
+require("dotenv").config();
 
 mongoose.set("strictQuery", false);
 const mongoDB = process.env.DATABASE_URL;
-console.log(mongoDB);
 
 main().catch((err) => console.log(err));
 async function main() {
